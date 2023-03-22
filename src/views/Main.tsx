@@ -1,10 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 
 function Main() {
   return (
-    <div className="main">
-      <Navbar />
+    <div id="main" className="min-h-screen rainbow-gradient">
       <Outlet />
     </div>
   );
