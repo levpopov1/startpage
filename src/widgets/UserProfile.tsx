@@ -1,14 +1,15 @@
 import { useWidgetContext } from './WidgetContext';
 import Card from '../components/Card';
-import T from '../components/Time';
+import Image from '../components/Image';
 
-function Time() {
+function UserProfile() {
   const { location, size } = useWidgetContext();
   return (
     <Card location={location} size={size}>
-      <T />
+      <Image />
+      <h3>username</h3>
     </Card>
   );
 }
 
-export default Time;
+export default UserProfile;

@@ -1,17 +1,7 @@
 import { createContext, useContext } from 'react';
+import { Widget } from './types';
 
-export type WidgetProps = {
-  location: {
-    column: number;
-    row: number;
-  };
-  size: {
-    width: number;
-    height: number;
-  };
-};
-
-const WidgetContext = createContext<WidgetProps | null>(null);
+const WidgetContext = createContext<Widget | null>(null);
 
 export function useWidgetContext() {
   const context = useContext(WidgetContext);

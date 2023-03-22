@@ -1,18 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import availableWidgets from '../widgets';
-
-type UserWidgets = {
-  userWidgets: UserWidget[];
-};
-
-type UserWidget = {
-  id: string;
-  name: string;
-  column: number;
-  row: number;
-  width: number;
-  height: number;
-};
+import { UserWidgets } from '../widgets/types';
+import BaseWidget from '../widgets';
 
 function Home() {
   const { isLoading, error, data } = useQuery<UserWidgets>({
@@ -24,18 +12,8 @@ function Home() {
   if (isLoading) return <p>Loadign...</p>;
   if (error) return <p>error...</p>;
 
-  console.log(data);
-
-  const items = data?.userWidgets.map((widget, index) => {
-    const Widget = availableWidgets[widget.name];
-    return (
-      <Widget
-        key={widget.id + index.toString()}
-        name={widget.name}
-        location={{ column: widget.column, row: widget.row }}
-        size={{ height: widget.height, width: widget.width }}
-      />
-    );
+  const items = data?.userWidgets.map((userWidget) => {
+    return <BaseWidget key={userWidget.id} userWidget={userWidget} />;
   });
 
   return (
