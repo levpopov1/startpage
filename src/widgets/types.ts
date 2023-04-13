@@ -1,6 +1,9 @@
-export type UserWidgets = {
-  userWidgets: UserWidget[];
-};
+export interface UserWidgetsResponse {
+  statusCode: number;
+  userWidgets: UserWidgets;
+}
+
+export type UserWidgets = UserWidget[];
 
 export type UserWidget = {
   id: string;
