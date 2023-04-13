@@ -25,7 +25,9 @@ export type Widget = {
     width: number;
     height: number;
   };
-  attributes?: {
-    imgae: string;
+  attributes: {
+    image: string;
+    url: string;
+    description: string;
   };
 };

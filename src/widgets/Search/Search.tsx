@@ -1,18 +1,16 @@
 import { useState } from 'react';
+import Card from '../components/Card';
+import { useWidgetContext } from '../WidgetContext';
 
-type Props = {
-  name: string;
-  url: string;
-};
-
-function Search({ name, url }: Props) {
+function Search() {
+  const { attributes, name } = useWidgetContext();
   const [query, setQuery] = useState('');
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = `${url}/search?q=${query}`;
+    window.location.href = `${attributes.url}/search?q=${query}`;
   };
   return (
-    <div>
+    <Card>
       <h1>{name}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="searchInput">
@@ -27,7 +25,7 @@ function Search({ name, url }: Props) {
         </label>
         <input type="submit" value="Submit" />
       </form>
-    </div>
+    </Card>
   );
 }
 

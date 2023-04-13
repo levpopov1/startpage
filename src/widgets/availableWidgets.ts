@@ -1,7 +1,7 @@
-import ImageOfTheDay from './ImageOfTheDay';
-import Search from './Search';
-import Time from './Time';
-import UserProfile from './UserProfile';
+import ImageOfTheDay from './ImageOfTheDay/ImageOfTheDay';
+import Search from './Search/Search';
+import Time from './Time/Time';
+import UserProfile from './UserProfile/UserProfile';
 
 type AvailableWidgets = {
   [key: string]: () => JSX.Element;

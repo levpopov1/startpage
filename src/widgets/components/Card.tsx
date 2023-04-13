@@ -1,19 +1,12 @@
 import { ReactNode } from 'react';
-// import { useWidgetContext } from '../widgets/WidgetContext';
+import { useWidgetContext } from '../WidgetContext';
 
 type Props = {
-  location: {
-    column: number;
-    row: number;
-  };
-  size: {
-    width: number;
-    height: number;
-  };
   children: ReactNode;
 };
 
-function Card({ location, size, children }: Props) {
+function Card({ children }: Props) {
+  const { location, size } = useWidgetContext();
   const rowStart = `row-start-${location.row}`;
   const rowSpan = `row-span-${size.height}`;
   const colStart = `col-start-${location.column}`;

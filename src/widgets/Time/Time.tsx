@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Card from '../components/Card';
 
 const locales = navigator.languages;
 // const locales = 'en-us';
@@ -22,7 +23,7 @@ function Time() {
   }, 1000);
 
   return (
-    <div>
+    <Card>
       <p className="text-5xl">
         {dateTime.toLocaleString(locales, dateTimeFormat)}
       </p>
@@ -63,7 +64,7 @@ function Time() {
           Toggle weekday
         </button>
       </div>
-    </div>
+    </Card>
   );
 }
 
