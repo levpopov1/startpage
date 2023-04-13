@@ -1,18 +1,9 @@
-export interface UserWidgetsResponse {
+export interface WidgetsResponse {
   statusCode: number;
-  userWidgets: UserWidgets;
+  widgets: Widgets;
 }
 
-export type UserWidgets = UserWidget[];
-
-export type UserWidget = {
-  id: string;
-  name: string;
-  column: number;
-  row: number;
-  width: number;
-  height: number;
-};
+export type Widgets = Widget[];
 
 export type Widget = {
   id: string;

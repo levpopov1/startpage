@@ -13,7 +13,9 @@ function Card({ children }: Props) {
   const colSpan = `col-span-${size.width}`;
   const position = `${rowStart} ${rowSpan} ${colStart} ${colSpan}`;
 
-  return <div className={position}>{children}</div>;
+  return (
+    <div className={`${position} bg-white rounded-md p-4`}>{children}</div>
+  );
 }
 
 export default Card;

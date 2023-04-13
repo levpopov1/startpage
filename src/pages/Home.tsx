@@ -1,19 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import { UserWidgetsResponse } from '../widgets/types';
+import { WidgetsResponse } from '../widgets/types';
 import Widget from '../widgets';
 
 function Home() {
-  const { isLoading, error, data } = useQuery<UserWidgetsResponse>({
+  const { isLoading, error, data } = useQuery<WidgetsResponse>({
     queryKey: ['userWidgets'],
     queryFn: () =>
       fetch('http://localhost:5000/widget').then((response) => response.json()),
   });
 
-  if (isLoading) return <p>Loadign...</p>;
+  if (isLoading) return <p>Loading...</p>;
   if (error) return <p>error...</p>;
 
-  const items = data?.userWidgets.map((userWidget) => {
-    return <Widget key={userWidget.id} userWidget={userWidget} />;
+  const items = data?.widgets.map((widget) => {
+    return <Widget key={widget.id} widget={widget} />;
   });
 
   return (
