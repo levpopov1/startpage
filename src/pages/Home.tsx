@@ -6,7 +6,9 @@ function Home() {
   const { isLoading, error, data } = useQuery<WidgetsResponse>({
     queryKey: ['userWidgets'],
     queryFn: () =>
-      fetch('http://localhost:5000/widget').then((response) => response.json()),
+      fetch('http://localhost:5000/users/1/widgets').then((response) =>
+        response.json()
+      ),
   });
 
   if (isLoading) return <p>Loading...</p>;

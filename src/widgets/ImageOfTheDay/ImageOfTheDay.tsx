@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import Card from '../components/Card';
+import Settings from '../components/Settings';
+import { useWidgetContext } from '../WidgetContext';
 
 function ImageOfTheDay() {
   const { isLoading, error, data } = useQuery({
@@ -8,6 +10,7 @@ function ImageOfTheDay() {
   });
   return (
     <Card>
+      <Settings />
       <img
         src={data}
         alt="of the day"
