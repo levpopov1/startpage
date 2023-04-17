@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { WidgetsResponse } from '../widgets/types';
+import { WidgetsResponse } from '../lib/api/index';
 import Widget from '../widgets';
 
 function Home() {

@@ -1,7 +1,3 @@
-export interface WidgetsResponse {
-  widgets: Widgets;
-}
-
 export type Widgets = Widget[];
 
 export type Widget = {
