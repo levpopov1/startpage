@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useWidgetContext } from '../WidgetContext';
 import TextInput from './forms/TextInput';
@@ -6,29 +5,21 @@ import { updateWidget } from '../../lib/api/mutations';
 import { Widget } from '../types';
 
 function Settings() {
-  const { id, row, column, width, height } = useWidgetContext();
-
-  const [widget, setWidget] = useState({
-    row,
-    column,
-    width,
-    height,
-  });
-
+  const { widget, editWidget } = useWidgetContext();
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
     mutationFn: updateWidget,
     onSuccess: (response) => {
-      queryClient.refetchQueries(['userWidgets']);
-      queryClient.setQueryData(['userWidgets', id], response.widget);
+      // queryClient.refetchQueries(['userWidgets']);
+      queryClient.setQueryData(['userWidgets', widget.id], response.widget);
     },
   });
 
-  const editWidget = (e: React.FormEvent) => {
+  const mutateWidget = (e: React.FormEvent) => {
     e.preventDefault();
     mutate({
-      id,
+      id: widget.id,
       widget,
     });
   };
@@ -37,12 +28,12 @@ function Settings() {
     e: React.ChangeEvent<HTMLInputElement>,
     prop: keyof Widget
   ) => {
-    return setWidget((prev) => ({ ...prev, [prop]: Number(e.target.value) }));
+    return editWidget({ [prop]: Number(e.target.value) });
   };
 
   return (
     <div className="max-w-sm absolute right-0 top-0 p-4 rounded m-4 bg-slate-300">
-      <form onSubmit={editWidget}>
+      <form onSubmit={mutateWidget}>
         <div className="flex flex-row justify-between mb-4">
           <div className="flex flex-col justify-between">
             <h4 className="mt-2 text-lg leading-8 text-gray-600">Size</h4>

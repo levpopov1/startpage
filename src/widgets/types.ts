@@ -7,7 +7,7 @@ export type Widget = {
   row: number;
   width: number;
   height: number;
-  image: string;
-  url: string;
-  description: string;
+  image?: string;
+  url?: string;
+  description?: string;
 };

@@ -1,7 +1,15 @@
 import { createContext, useContext } from 'react';
 import { Widget } from './types';
 
-const WidgetContext = createContext<Widget | null>(null);
+type Ctx = {
+  widget: Widget;
+  editWidget: (update: Partial<Widget>) => void;
+};
+
+const WidgetContext = createContext<Ctx>({
+  widget: {} as Widget,
+  editWidget: () => null,
+});
 
 export function useWidgetContext() {
   const context = useContext(WidgetContext);

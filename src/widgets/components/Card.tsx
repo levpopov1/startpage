@@ -6,11 +6,11 @@ type Props = {
 };
 
 function Card({ children }: Props) {
-  const { row, column, width, height } = useWidgetContext();
-  const rowStart = `row-start-${row}`;
-  const rowSpan = `row-span-${height}`;
-  const colStart = `col-start-${column}`;
-  const colSpan = `col-span-${width}`;
+  const { widget } = useWidgetContext();
+  const rowStart = `row-start-${widget.row}`;
+  const rowSpan = `row-span-${widget.height}`;
+  const colStart = `col-start-${widget.column}`;
+  const colSpan = `col-span-${widget.width}`;
   const position = `${rowStart} ${rowSpan} ${colStart} ${colSpan}`;
 
   return (
