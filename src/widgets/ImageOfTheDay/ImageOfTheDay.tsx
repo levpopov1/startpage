@@ -15,6 +15,7 @@ function ImageOfTheDay() {
         src={data}
         alt="of the day"
         className="rounded h-full w-full object-cover"
+        style={{ pointerEvents: 'none', userSelect: 'none' }}
       />
     </Card>
   );
