@@ -21,7 +21,7 @@ function Home() {
   return (
     <div
       id="home"
-      className="grid grid-cols-12 grid-rows-12 gap-4 mx-4 py-4 h-screen"
+      className="grid grid-cols-12 grid-rows-12 gap-4 p-4 h-screen"
     >
       {items}
     </div>

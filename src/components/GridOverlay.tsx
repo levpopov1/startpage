@@ -38,7 +38,10 @@ function GridOverlay() {
   return (
     <>
       {showGridOverlay && (
-        <div className="absolute top-0 left-0 right-0 grid grid-cols-12 grid-rows-12 gap-4 mx-4 py-4 h-screen">
+        <div
+          className="absolute top-0 left-0 right-0 grid grid-cols-12 grid-rows-12 gap-4 p-4 h-screen"
+          style={{ pointerEvents: 'none' }}
+        >
           {gridItems}
         </div>
       )}
